@@ -1,0 +1,47 @@
+# Models.
+
+- pokemon
+- battle_move
+- available_move
+- element_type
+- pokemon_type
+
+# Relations.
+
+A Pokemon has many BattleMoves through AvailableMove.
+A BattleMove has many Pokemon through AvailableMove.
+AvailableMove belongs to a Pokemon and a BattleMove.
+A Pokemon belongs to an ElementType.
+A BattleMove belongs to an ElementType.
+An ElementType has many Pokemon and many Moves.
+A Move has an ElementType.
+
+# Objectives.
+
+As a user, I want to see the most & least common available move between all Pokemon.
+As a user, I want to see all the Pokemon that can be assigned a specific BattleMove.
+As a user, I want to see the most & least popular ElementTypes for Pokemon and BattleMoves.
+As a user, I want to see Pokemon who possess the most and least amount of Moves that
+match their type.
+As a user, I want to see how many Pokemon comprise each ElementType and name them.
+As a user, I want to see which Pokemon only have one ElementType.
+
+# Tables.
+
+## moves
+name => "mega-punch"
+url => "https://pokeapi/moves"
+elemental_type_id => 5
+
+## pokemon
+name => bulbasaur
+url
+
+## pokemon_types
+pokemon_id, type_id
+
+## available_moves
+pokemon_id, move_id
+
+## element_types 
+name => "normal", "fire", "ghost"
