@@ -35,7 +35,7 @@ elemental_type_id => 5
 
 ## pokemon
 name => bulbasaur
-url
+url => pokeapi.co/api/whatever
 
 ## pokemon_types
 pokemon_id, type_id
@@ -43,5 +43,7 @@ pokemon_id, type_id
 ## available_moves
 pokemon_id, move_id
 
-## element_types 
+## element_types
 name => "normal", "fire", "ghost"
+
+# Setup
