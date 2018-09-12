@@ -17,7 +17,7 @@ api.make_move_data
 puts ''
 api.get_pokemon_data
 puts ''
-api.get_detailed_pokemon_data(10)
+api.get_detailed_pokemon_data(3)
 puts ''
 
 # Prune Pokemon data (no mega-evolutions.)

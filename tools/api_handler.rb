@@ -63,11 +63,22 @@ class ApiHandler
     end
   end
 
+  # Remove Move versioning and ID indicies data.
+  def prune_pokemon_data(dataset)
+    pruned_data = dataset
+    pruned_data['moves'] = pruned_data['moves'].map do |move|
+      move = move['move']
+    end
+    pruned_data.delete('game_indices')
+    pruned_data
+  end
+
   def make_pokemon_data
     @pokemon_data.each do |data|
       id = data['id']
       name = data['name']
-      Pokemon.new(id, name, data)
+      pruned_data = prune_pokemon_data(data)
+      Pokemon.new(id, name, pruned_data)
     end
   end
 
@@ -90,7 +101,8 @@ class ApiHandler
       pokemon = Pokemon.find_pokemon_by_name(pokemon_data['name'])
       puts 'Assigning moves to ' + pokemon.name
       pokemon_data['moves'].each do |move_data|
-        move_name = move_data['move']['name']
+        # binding.pry
+        move_name = move_data['name']
         move = Move.find_move_by_name(move_name)
         AvailableMove.new(pokemon, move)
       end
