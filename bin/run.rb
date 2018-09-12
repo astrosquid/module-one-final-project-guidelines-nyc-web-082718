@@ -19,6 +19,6 @@ Pokemon.all = Pokemon.all.select do |pokemon|
   pokemon.id <= 802
 end
 
-assign_types_to_pokemon
+assign_types_and_moves_to_pokemon
 
 binding.pry

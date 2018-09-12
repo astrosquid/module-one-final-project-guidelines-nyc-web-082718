@@ -13,4 +13,10 @@ class Move
   def self.all
     @@all
   end
+
+  def self.find_move_by_name(name)
+    @@all.find do |move|
+      move.name == name
+    end
+  end
 end
