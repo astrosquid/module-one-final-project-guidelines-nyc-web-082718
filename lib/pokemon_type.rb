@@ -7,6 +7,7 @@ class PokemonType
   def initialize(pokemon, element_type)
     @pokemon = pokemon
     @element_type = element_type
+    # @slot = slot
     @@all << self
   end
 

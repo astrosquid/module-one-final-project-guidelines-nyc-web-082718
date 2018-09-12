@@ -19,6 +19,12 @@ class Pokemon
     @@all = array
   end
 
+  def self.find_pokemon_by_name(name)
+    @@all.find do |pokemon|
+      pokemon.name == name
+    end 
+  end
+
   def to_s
     "No. #{@id}: #{@name}"
   end
