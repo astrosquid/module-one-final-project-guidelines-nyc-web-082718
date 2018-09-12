@@ -2,12 +2,11 @@ class Pokemon
 
   @@all = []
 
-  attr_reader :id, :name, :api_data
+  attr_reader :id, :name
 
-  def initialize(id, name, api_data)
+  def initialize(id, name)
     @id = id
     @name = name
-    @api_data = api_data
     @@all << self
   end
 

@@ -78,7 +78,8 @@ class ApiHandler
       id = data['id']
       name = data['name']
       pruned_data = prune_pokemon_data(data)
-      Pokemon.new(id, name, pruned_data)
+      pokemon = Pokemon.new(id, name)
+      PokemonJson.new(pokemon, pruned_data)
     end
   end
 
