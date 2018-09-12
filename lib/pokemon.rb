@@ -8,7 +8,7 @@ class Pokemon
     @id = id
     @name = name
     @url = url
-    @api_data
+    @api_data = api_data
     @@all << self
   end
 
