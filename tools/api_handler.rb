@@ -81,7 +81,7 @@ class ApiHandler
       @pokemon_data << pokemon
       id = pokemon['id']
       name = pokemon['name']
-      Pokemon.new(id, name, url)
+      Pokemon.new(id, name, url, pokemon)
       print name + "..."
     end
     print "\n"
