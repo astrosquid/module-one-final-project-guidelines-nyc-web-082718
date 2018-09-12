@@ -16,14 +16,16 @@ puts ''
 api.make_move_data
 puts ''
 api.get_pokemon_data
+puts ''
+api.get_detailed_pokemon_data(10)
+puts ''
 
 # Prune Pokemon data (no mega-evolutions.)
 Pokemon.all = Pokemon.all.select do |pokemon|
   pokemon.id <= 802
 end
 
-puts ''
-api.make_pokemon_data(10)
+api.make_pokemon_data
 puts ''
 api.make_pokemon_type_data
 puts ''
