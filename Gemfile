@@ -8,3 +8,4 @@ gem "require_all"
 
 # Added by collaborators.
 gem "rest-client"
+gem "io-console"
