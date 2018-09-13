@@ -24,7 +24,7 @@ class ApiHandler
   def make_type_data
     @type_data.each do |element|
       puts 'Making ElementType ' + element["name"]
-      ElementType.create(element["name"])
+      ElementType.create(name: element["name"])
     end
   end
 
@@ -32,7 +32,7 @@ class ApiHandler
     @type_data.each do |element|
       puts "Making moves for " + element["name"]
       element['moves'].each do |type_move|
-        Move.create(type_move['name'], ElementType.find_by(name: element["name"]).id)
+        Move.create({name: type_move['name'], element_type_id: ElementType.find_by(name: element["name"]).id})
       end
     end
   end
@@ -86,8 +86,8 @@ class ApiHandler
       # id = data['id']
       name = data['name']
       pruned_data = prune_pokemon_data(data)
-      pokemon = Pokemon.create(name)
-      PokemonJson.create(pokemon.id, pruned_data)
+      pokemon = Pokemon.create({name: name})
+      PokemonJson.create({pokemon_id: pokemon.id, data: pruned_data})
     end
   end
 
@@ -100,7 +100,7 @@ class ApiHandler
       pokemon = Pokemon.find_by(name: pokemon_data['name'])
       puts "Assigning types to " + pokemon.name
       elements.each do |element|
-        PokemonType.create(pokemon.id, element.id)
+        PokemonType.create({pokemon_id: pokemon.id, element_type_id: element.id})
       end
     end
   end
@@ -111,7 +111,7 @@ class ApiHandler
       puts 'Assigning moves to ' + pokemon.name
       pokemon_data['moves'].each do |move_data|
         move = Move.find_by(name: move_data['name'])
-        AvailableMove.create(pokemon.id, move.id)
+        AvailableMove.create({pokemon_id: pokemon.id, move_id: move.id})
       end
     end
   end
