@@ -58,9 +58,14 @@ class ApiHandler
     end
   end
 
-  def get_detailed_pokemon_data(limit=100000)
+
+  def get_detailed_pokemon_offset
+    Pokemon.all.length
+  end
+
+  def get_detailed_pokemon_data(offset, limit=100000)
     print "Fetched:"
-    @pokemon_urls.each do |url|
+    @pokemon_urls[offset...@pokemon_urls.length].each do |url|
       if @pokemon_data.length == limit
         break
       end
@@ -68,6 +73,7 @@ class ApiHandler
       pokemon_data = get_data(url)
       @pokemon_data << pokemon_data
       print pokemon_data['name'] + '...'
+      make_pokemon_data(pokemon_data)
     end
   end
 
@@ -81,14 +87,12 @@ class ApiHandler
     pruned_data
   end
 
-  def make_pokemon_data
-    @pokemon_data.each do |data|
-      # id = data['id']
-      name = data['name']
-      pruned_data = prune_pokemon_data(data)
-      pokemon = Pokemon.create({name: name})
-      PokemonJson.create({pokemon_id: pokemon.id, data: pruned_data})
-    end
+  def make_pokemon_data(data)
+    # id = data['id']
+    name = data['name']
+    pruned_data = prune_pokemon_data(data)
+    pokemon = Pokemon.create({name: name})
+    PokemonJson.create({pokemon_id: pokemon.id, data: pruned_data})
   end
 
   def make_pokemon_type_data
