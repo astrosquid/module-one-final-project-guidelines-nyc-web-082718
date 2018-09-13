@@ -66,5 +66,5 @@ def resume(api)
   puts ''
 end
 
-# first_time_setup(api)
-resume(api)
+first_time_setup(api)
+# resume(api)
