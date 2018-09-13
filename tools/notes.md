@@ -18,11 +18,17 @@ A Move has an ElementType.
 
 # Objectives.
 
-As a user, I want to see the most & least common available move between all Pokemon.
-As a user, I want to see all the Pokemon that can be assigned a specific BattleMove.
-As a user, I want to see the most & least popular ElementTypes for Pokemon and BattleMoves.
+<!-- As a user, I want to see the most & least common available move between all Pokemon. -->
+
+<!-- As a user, I want to see all the Pokemon that can be assigned a specific Move. -->
+
+As a user, I want to see the most & least popular ElementTypes for all Pokemon
+
+As a user, I want to see the most & least popular ElementTypes for all BattleMoves.
+
 As a user, I want to see Pokemon who possess the most and least amount of Moves that
 match their type.
+
 As a user, I want to see how many Pokemon comprise each ElementType and name them.
 As a user, I want to see which Pokemon only have one ElementType.
 

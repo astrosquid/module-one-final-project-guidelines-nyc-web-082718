@@ -1,4 +1,4 @@
 class AvailableMove < ActiveRecord::Base
   belongs_to :pokemon
-  belongs_to :move 
+  belongs_to :move
 end
