@@ -1,15 +1,4 @@
-class AvailableMove
-  @@all = []
-
-  attr_reader :pokemon, :move
-
-  def initialize(pokemon, move)
-    @pokemon = pokemon
-    @move = move
-    @@all << self 
-  end
-
-  def self.all
-    @@all
-  end
+class AvailableMove < ActiveRecord::Base
+  belongs_to :pokemon
+  belongs_to :move 
 end

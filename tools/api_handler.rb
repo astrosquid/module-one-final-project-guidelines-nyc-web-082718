@@ -30,7 +30,7 @@ class ApiHandler
     @type_data.each do |element|
       puts "Making moves for " + element["name"]
       element['moves'].each do |type_move|
-        Move.new(type_move['name'], ElementType.get_type_by_name(element["name"]), type_move['url'])
+        Move.new(type_move['name'], ElementType.get_type_by_name(element["name"]))
       end
     end
   end
