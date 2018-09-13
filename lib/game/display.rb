@@ -18,6 +18,7 @@ class Display
   end
 
   def await_confirmation
+    puts "    < enter > "
     gets.chomp
   end
 

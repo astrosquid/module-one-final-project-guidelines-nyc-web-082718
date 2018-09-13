@@ -7,15 +7,14 @@ require 'json'
 require 'rest-client'
 require 'io/console'
 
-def welcome
+def welcome(dis)
   banner = File.read('./assets/banner.txt')
   puts banner
   puts ''
+  dis.await_confirmation
 end
 
 # Run
-
-welcome
 
 bul = Pokemon.find_by(name: 'bulbasaur')
 cha = Pokemon.find_by(name: 'charmander')
@@ -24,8 +23,10 @@ pik = Pokemon.find_by(name: 'pikachu')
 eev = Pokemon.find_by(name: 'eevee')
 
 dis = Display.new
+welcome(dis)
 
 dis.display_dialog "Hello there! Welcome to the world of pokémon! My name is Oak! People call me the pokémon Prof! This world is inhabited by creatures called pokémon! For some people, pokémon are pets. Others use them for fights. Myself...I study pokémon as a profession."
 dis.display_dialog "Err - forgive me, but I forget your name. What was it again?"
+print "NAME: "
 name = gets.chomp
 dis.display_dialog "Well then, #{name.capitalize}, welcome to the wonderful world of Pokemon!"
