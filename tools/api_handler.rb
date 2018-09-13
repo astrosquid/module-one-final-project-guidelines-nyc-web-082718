@@ -1,4 +1,6 @@
 class ApiHandler
+  attr_reader :type_data, :pokemon_data, :pokemon_urls
+
   def initialize
     @type_data = []
     @pokemon_data = []
@@ -22,7 +24,7 @@ class ApiHandler
   def make_type_data
     @type_data.each do |element|
       puts 'Making ElementType ' + element["name"]
-      ElementType.new(element["name"])
+      ElementType.create(element["name"])
     end
   end
 
@@ -30,7 +32,7 @@ class ApiHandler
     @type_data.each do |element|
       puts "Making moves for " + element["name"]
       element['moves'].each do |type_move|
-        Move.new(type_move['name'], ElementType.get_type_by_name(element["name"]))
+        Move.create(type_move['name'], ElementType.find_by(name: element["name"]).id)
       end
     end
   end
@@ -47,6 +49,12 @@ class ApiHandler
         @pokemon_urls << poke['url']
       end
       next_url = current_dataset['next']
+    end
+  end
+
+  def eliminate_extra_urls
+    @pokemon_urls = @pokemon_urls.select do |url|
+      url.split('/').last.to_i <= 802
     end
   end
 
@@ -75,37 +83,35 @@ class ApiHandler
 
   def make_pokemon_data
     @pokemon_data.each do |data|
-      id = data['id']
+      # id = data['id']
       name = data['name']
       pruned_data = prune_pokemon_data(data)
-      pokemon = Pokemon.new(id, name)
-      PokemonJson.new(pokemon, pruned_data)
+      pokemon = Pokemon.create(name)
+      PokemonJson.create(pokemon.id, pruned_data)
     end
   end
 
   def make_pokemon_type_data
     @pokemon_data.each do |pokemon_data|
       elements = pokemon_data['types'].map do |type_data|
-        ElementType.get_type_by_name(type_data['type']['name'])
+        ElementType.find_by(name: type_data['type']['name'])
       end
 
-      pokemon = Pokemon.find_pokemon_by_name(pokemon_data['name'])
+      pokemon = Pokemon.find_by(name: pokemon_data['name'])
       puts "Assigning types to " + pokemon.name
       elements.each do |element|
-        PokemonType.new(pokemon, element)
+        PokemonType.create(pokemon.id, element.id)
       end
     end
   end
 
   def make_available_moves
     @pokemon_data.each do |pokemon_data|
-      pokemon = Pokemon.find_pokemon_by_name(pokemon_data['name'])
+      pokemon = Pokemon.find_by(name: pokemon_data['name'])
       puts 'Assigning moves to ' + pokemon.name
       pokemon_data['moves'].each do |move_data|
-        # binding.pry
-        move_name = move_data['name']
-        move = Move.find_move_by_name(move_name)
-        AvailableMove.new(pokemon, move)
+        move = Move.find_by(name: move_data['name'])
+        AvailableMove.create(pokemon.id, move.id)
       end
     end
   end

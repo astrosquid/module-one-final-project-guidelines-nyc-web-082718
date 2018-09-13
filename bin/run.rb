@@ -17,6 +17,8 @@ api.make_move_data
 puts ''
 api.get_pokemon_data
 puts ''
+api.eliminate_extra_urls
+puts ''
 api.get_detailed_pokemon_data(3)
 puts ''
 
