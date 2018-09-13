@@ -14,7 +14,7 @@ class ElementType < ActiveRecord::Base
   end
 
 
-  def self.most_popular_element_type
+  def self.most_popular_element_type_pokemon
     highest = 0
     highest_key = 0
     ElementType.get_number_of_element_types.each do |key, value|
@@ -26,7 +26,7 @@ class ElementType < ActiveRecord::Base
     highest_key
   end
 
-  def self.least_popular_element_type
+  def self.least_popular_element_type_pokemon
     lowest = 2000
     lowest_key = 0
     ElementType.get_number_of_element_types.each do |key, value|
@@ -36,6 +36,28 @@ class ElementType < ActiveRecord::Base
       end
     end
     lowest_key
+  end
+
+  def self.get_number_of_element_types
+    element_type_counts = {}
+    ElementType.all.each do |element_type|
+      assignments = PokemonType.where(element_type: element_type)
+      element_type_counts[element_type] = assignments.length
+    end
+    element_type_counts
+  end
+
+  def self.most_popular_element_type_battle_move
+    highest = 0
+    highest_key = 0
+    ElementType.get_number_of_element_types.each do |key, value|
+      if value
+      end
+    end
+  end
+
+  def self.least_popular_element_type_battle_move
+
   end
 
 end

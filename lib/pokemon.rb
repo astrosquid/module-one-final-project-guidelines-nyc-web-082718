@@ -19,27 +19,27 @@ class Pokemon < ActiveRecord::Base
   def self.most_common_move
     hash = Pokemon.get_number_of_available_moves
     highest = 0
-    highest_id = 0
+    highest_key = 0
     hash.each do |key, value|
       if value > highest
         highest = value
-        highest_id = key
+        highest_key = key
       end
     end
-    Move.find_by(id: highest_id)
+    Move.find_by(id: highest_key)
   end
 
   def self.least_common_move
     hash = Pokemon.get_number_of_available_moves
     lowest = 803
-    lowest_id = 0
+    lowest_key = 0
     hash.each do |key, value|
       if value < lowest
         lowest = value
-        lowest_id = key
+        lowest_key = key
       end
     end
-    Move.find_by(id: lowest_id)
+    Move.find_by(id: lowest_key)
   end
 
 end
