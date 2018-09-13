@@ -10,16 +10,32 @@ class ElementType < ActiveRecord::Base
       assignments = PokemonType.where(element_type: element_type)
       element_type_counts[element_type] = assignments.length
     end
-    binding.pry
     element_type_counts
   end
 
 
   def self.most_popular_element_type
-    ElementType.get_number_of_element_types
-    most_popular = 0
+    highest = 0
+    highest_key = 0
+    ElementType.get_number_of_element_types.each do |key, value|
+      if value > highest
+        highest = value
+        highest_key = key
+      end
+    end
+    highest_key
+  end
 
-
+  def self.least_popular_element_type
+    lowest = 2000
+    lowest_key = 0
+    ElementType.get_number_of_element_types.each do |key, value|
+      if value < lowest
+        lowest = value
+        lowest_key = key
+      end
+    end
+    lowest_key
   end
 
 end

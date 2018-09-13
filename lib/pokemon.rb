@@ -5,16 +5,15 @@ class Pokemon < ActiveRecord::Base
   has_many :element_types, through: :pokemon_types
 
   def self.get_number_of_available_moves
-    hash = {}
+    available_move_counts = {}
     AvailableMove.all.each do |avail_move|
-      if hash[avail_move.move_id]
-        hash[avail_move.move_id] += 1
+      if available_move_counts[avail_move.move]
+        available_move_counts[avail_move.move] += 1
       else
-        hash[avail_move.move_id] = 1
+        available_move_counts[avail_move.move] = 1
       end
     end
-    # binding.pry
-    hash
+    available_move_counts
   end
 
   def self.most_common_move

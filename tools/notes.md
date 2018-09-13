@@ -22,7 +22,7 @@ A Move has an ElementType.
 
 <!-- As a user, I want to see all the Pokemon that can be assigned a specific Move. -->
 
-As a user, I want to see the most & least popular ElementTypes for all Pokemon
+<!-- As a user, I want to see the most & least popular ElementTypes for all Pokemon -->
 
 As a user, I want to see the most & least popular ElementTypes for all BattleMoves.
 
