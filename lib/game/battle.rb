@@ -55,13 +55,12 @@ class Battle
     [players_text, pokemon_text, types_text, health_text]
   end
 
-
-
   def draw_battle_screen
     @dis.clear_screen
     self.create_battle_text.each do |line|
       puts line
     end
+    puts @dis.print_dialog("1.Fight 2.PkMn EOL 3.Item 4.Run", '')
     @dis.await_confirmation
   end
 

@@ -9,3 +9,4 @@ gem "require_all"
 # Added by collaborators.
 gem "rest-client"
 gem "io-console"
+# gem "audio-playback" # requires "brew install libsndfile portaudio"

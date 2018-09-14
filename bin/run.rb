@@ -98,9 +98,9 @@ rival.pokemon << rivals_starter
 player = Trainer.new(name)
 player.pokemon << starter
 
+# OPEN BATTLE SCREEN
+
 battle = Battle.new(dis, player, rival)
 battle.draw_battle_screen
 
-# binding.pry
-
-# OPEN BATTLE SCREEN
+binding.pry
