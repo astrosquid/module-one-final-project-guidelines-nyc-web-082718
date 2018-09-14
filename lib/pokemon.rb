@@ -16,7 +16,7 @@ class Pokemon < ActiveRecord::Base
     available_move_counts
   end
 
-  def self.most_common_move
+  def self.most_common_available_move
     hash = Pokemon.get_number_of_available_moves
     highest = 0
     highest_key = 0
@@ -29,7 +29,7 @@ class Pokemon < ActiveRecord::Base
     Move.find_by(id: highest_key)
   end
 
-  def self.least_common_move
+  def self.least_common_available_move
     hash = Pokemon.get_number_of_available_moves
     lowest = 803
     lowest_key = 0
