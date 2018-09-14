@@ -1,4 +1,6 @@
 class Menu
+  attr_accessor :options
+
   def initialize(display, action, confirm=false, confirm_q='')
     @display = display
     @action = action # "Choose a POKEMON"
@@ -21,7 +23,6 @@ class Menu
       op_string += "#{c.to_s}: #{op.name.upcase} EOL "
       c += 1
     end
-    binding.pry
     @display.display_dialog(op_string, '')
     print "INPUT: "
     choice = gets.chomp.to_i
