@@ -4,8 +4,14 @@ This project is intended for relationships between Pokemon moves and their respe
 ## Requirements
 Things needed to install the software and how to install them
 
-## Installng
-Step by step series of examples that tell you how to get a development env running
+## Installing
+
+- clone this repo
+- cd to it and `bundle install`
+- run using `ruby bin/run.rb`
+
+_Optionally:_
+You may find it more authentic to install the Pokemon GB font. On Mac, this can be easily done by using Font Book. Drag the .tff file for your language into Font Book and it will install automatically. Then, go to your terminal settings and change the font to Pokemon GB.
 
 # Relationships
 A Pokemon has_many BattleMoves through AvailableMove.
@@ -18,6 +24,7 @@ A Move has an ElementType.
 
 ## Motivation
 
+We wanted to explore the relationships between the following
 
 ## Objectives
 As a user, I want to see the most & least common available move between all Pokemon.
