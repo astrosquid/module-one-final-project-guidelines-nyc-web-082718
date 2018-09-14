@@ -28,9 +28,7 @@ A Move has an ElementType.
 
 <!-- As a user, I want to see Pokemon who possess the most and least amount of Moves that match their type. -->
 
-As a user, I want to see how many Pokemon comprise each ElementType and name them.
-#iterate through pokemon, for each pokemon get their types, and #use types to add pokemon to the hash
-#key = element type, value = array of pokemon(result)
+<!-- As a user, I want to see how many Pokemon comprise each ElementType and name them. -->
 
 As a user, I want to see which Pokemon only have one ElementType.
 #pokemon that has only 1 element type

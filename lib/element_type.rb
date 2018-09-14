@@ -71,4 +71,15 @@ class ElementType < ActiveRecord::Base
     lowest_key
   end
 
+  def self.element_type_pokemons
+    element_type_pokemons_hash = {}
+    ElementType.all.each do |element_type|
+      pokemon_array = Pokemon.all.select do |pokemon|
+        pokemon.element_types.include?(element_type)
+      end
+      element_type_pokemons_hash[element_type.name] = pokemon_array
+    end
+    element_type_pokemons_hash
+  end
+
 end
