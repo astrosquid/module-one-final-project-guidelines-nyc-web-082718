@@ -2,14 +2,20 @@ class Display
   @@MAX_LINE_LENGTH = 35
   def print_dialog(dialog, character)
     puts "    #{character.upcase}"
-    words = dialog.split(' ')
-    line = ''
+    words = dialog.split(" ") # or regex / / to keep newline
+    line = ""
     while !words.empty?
-      if (line + words.first + " ").length >= @@MAX_LINE_LENGTH
+      if words.first == "EOL"
+        words.shift
         puts "  " + line
-        line = ''
+        line = ""
+      elsif (line + words.first + " ").length >= @@MAX_LINE_LENGTH
+        puts "  " + line
+        line = ""
       end
-      line += words.shift + " "
+      if !words.empty?
+        line += words.shift + " "
+      end
     end
     puts "  " + line
   end

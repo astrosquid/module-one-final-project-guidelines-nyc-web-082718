@@ -59,6 +59,15 @@ dis.display_dialog('...', '')
 
 # STARTER SELECTION (DIALOGUE, THEN MENU)
 
+menu = Menu.new(dis, "Choose a POKEMON", true, "choose this POKEMON")
+menu.add_options [bul, cha, squ, pik]
+choice = 0
+confirmed = false
+while !confirmed do
+  choice = menu.display_options
+  confirmed = menu.confirmation?
+end
+
 # DIALOGUE WITH GARY BEFORE FIRST FIGHT
 
 # OPEN BATTLE SCREEN
