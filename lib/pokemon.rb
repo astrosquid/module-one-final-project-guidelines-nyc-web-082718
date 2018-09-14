@@ -42,4 +42,23 @@ class Pokemon < ActiveRecord::Base
     Move.find_by(id: lowest_key)
   end
 
+  def count_elemental_moves
+    elemental_moves = self.moves.select do |move|
+      self.element_types.include?(move.element_type)
+    end
+    elemental_moves.length
+  end
+
+  def self.most_elemental_moves
+    Pokemon.all.max_by do |pokemon|
+      pokemon.count_elemental_moves
+    end
+  end
+
+  def self.least_elemental_moves
+    Pokemon.all.min_by do |pokemon|
+      pokemon.count_elemental_moves
+    end
+  end
+
 end
