@@ -1,6 +1,7 @@
 class Display
   @@MAX_LINE_LENGTH = 35
-  def print_dialog(dialog)
+  def print_dialog(dialog, character)
+    puts "    #{character.upcase}"
     words = dialog.split(' ')
     line = ''
     while !words.empty?
@@ -22,9 +23,9 @@ class Display
     gets.chomp
   end
 
-  def display_dialog(dialog)
+  def display_dialog(dialog, character)
     clear_screen
-    print_dialog(dialog)
+    print_dialog(dialog, character)
     await_confirmation
   end
 
