@@ -7,7 +7,10 @@ Things needed to install the software and how to install them
 ## Installng
 Step by step series of examples that tell you how to get a development env running
 
-# Relationships
+## Motivation
+
+##
+Relationships
 A Pokemon has_many BattleMoves through AvailableMove.
 A Pokemon belongs_to an ElementType.
 A BattleMove hash_many Pokemon through AvailableMove.
@@ -15,9 +18,6 @@ A BattleMove belongs_to an ElementType.
 AvailableMove belongs_to a Pokemon and a BattleMove.
 An ElementType has_many Pokemon and many Moves.
 A Move has an ElementType.
-
-## Motivation
-
 
 ## Objectives
 As a user, I want to see the most & least common available move between all Pokemon.
