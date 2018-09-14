@@ -24,7 +24,7 @@ A Move has an ElementType.
 
 <!-- As a user, I want to see the most & least popular ElementTypes for all Pokemon -->
 
-As a user, I want to see the most & least popular ElementTypes for all BattleMoves.
+As a user, I want to see the most & least popular ElementTypes for all Moves.
 
 
 As a user, I want to see Pokemon who possess the most and least amount of Moves that match their type.
