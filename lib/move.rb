@@ -7,5 +7,5 @@ class Move < ActiveRecord::Base
     move = Move.find_by(name: move_name)
     move.pokemons
   end
-
+  
 end

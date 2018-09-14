@@ -3,7 +3,6 @@ class ElementType < ActiveRecord::Base
   has_many :pokemon_types
   has_many :pokemons, through: :pokemon_types
 
-
   def self.get_number_of_element_types
     element_type_counts = {}
     ElementType.all.each do |element_type|
@@ -12,7 +11,6 @@ class ElementType < ActiveRecord::Base
     end
     element_type_counts
   end
-
 
   def self.most_popular_element_type_pokemon
     highest = 0
@@ -47,7 +45,7 @@ class ElementType < ActiveRecord::Base
     move_element_type_counts
   end
 
-  def self.most_popular_element_type_battle_move
+  def self.most_popular_element_type_move
     highest = 0
     highest_key = 0
     ElementType.get_number_of_element_types_moves.each do |key, value|
@@ -59,7 +57,7 @@ class ElementType < ActiveRecord::Base
     highest_key
   end
 
-  def self.least_popular_element_type_battle_move
+  def self.least_popular_element_type_move
     lowest = 2000
     lowest_key = 0
     ElementType.get_number_of_element_types_moves.each do |key, value|
