@@ -61,4 +61,10 @@ class Pokemon < ActiveRecord::Base
     end
   end
 
+  def self.pokemon_with_one_element_type
+    Pokemon.all.select do |pokemon|
+      pokemon.element_types.length == 1
+    end
+  end
+
 end
