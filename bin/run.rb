@@ -14,8 +14,6 @@ def welcome(dis)
   dis.await_confirmation
 end
 
-# Run
-
 bul = Pokemon.find_by(name: 'bulbasaur')
 cha = Pokemon.find_by(name: 'charmander')
 squ = Pokemon.find_by(name: 'squirtle')
@@ -25,8 +23,23 @@ eev = Pokemon.find_by(name: 'eevee')
 dis = Display.new
 welcome(dis)
 
-dis.display_dialog "Hello there! Welcome to the world of pokémon! My name is Oak! People call me the pokémon Prof! This world is inhabited by creatures called pokémon! For some people, pokémon are pets. Others use them for fights. Myself...I study pokémon as a profession."
-dis.display_dialog "Err - forgive me, but I forget your name. What was it again?"
+# INTRO
+
+dis.display_dialog "Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!"
+dis.display_dialog "This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets. Others use them for fights. Myself... I study POKEMON as a profession."
+dis.display_dialog "First, what is your name?"
 print "NAME: "
 name = gets.chomp
-dis.display_dialog "Well then, #{name.capitalize}, welcome to the wonderful world of Pokemon!"
+dis.display_dialog "Right! So your name is #{name.upcase}!"
+dis.display_dialog "This is my grandson. He's been your rival since you were a baby."
+dis.display_dialog "...Erm, what is his name again?"
+print "NAME: "
+rival = gets.chomp
+dis.display_dialog "That's right! I remember now! His name is #{rival.upcase}!"
+dis.display_dialog "#{name.upcase}! Your very own POKEMON legend is about to unfold! A world of dreams and adventures with POKEMON awaits! Let's go!"
+
+# STARTER SELECTION (DIALOGUE, THEN MENU)
+
+# DIALOGUE WITH GARY BEFORE FIRST FIGHT
+
+# OPEN BATTLE SCREEN
