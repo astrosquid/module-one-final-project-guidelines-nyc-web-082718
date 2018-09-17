@@ -6,12 +6,16 @@ Things needed to install the software and how to install them
 
 ## Installing
 
+- Use RVM to install Ruby 2.3.3
 - clone this repo
 - cd to it and `bundle install`
+- create and seed the database using `rake db:reset`; please give this 20 min max. If the API goes down while seeding, please run the command again from the beginning.
 - run using `ruby bin/run.rb`
 
 _Optionally:_
 You may find it more authentic to install the Pokemon GB font. On Mac, this can be easily done by using Font Book. Drag the .tff file for your language into Font Book and it will install automatically. Then, go to your terminal settings and change the font to Pokemon GB.
+
+The font can be [installed from this link.](http://www.fontspace.com/jackster-productions/pokemon-gb)
 
 ## Motivation
 
