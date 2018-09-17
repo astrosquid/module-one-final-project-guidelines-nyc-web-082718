@@ -13,7 +13,10 @@ Things needed to install the software and how to install them
 _Optionally:_
 You may find it more authentic to install the Pokemon GB font. On Mac, this can be easily done by using Font Book. Drag the .tff file for your language into Font Book and it will install automatically. Then, go to your terminal settings and change the font to Pokemon GB.
 
-# Relationships
+## Motivation
+
+##
+Relationships
 A Pokemon has_many BattleMoves through AvailableMove.
 A Pokemon belongs_to an ElementType.
 A BattleMove hash_many Pokemon through AvailableMove.
@@ -21,10 +24,6 @@ A BattleMove belongs_to an ElementType.
 AvailableMove belongs_to a Pokemon and a BattleMove.
 An ElementType has_many Pokemon and many Moves.
 A Move has an ElementType.
-
-## Motivation
-
-We wanted to explore the relationships between the following
 
 ## Objectives
 As a user, I want to see the most & least common available move between all Pokemon.
