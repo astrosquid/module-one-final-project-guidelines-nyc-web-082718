@@ -7,6 +7,8 @@ require 'json'
 require 'rest-client'
 require 'io/console'
 
+# `afplay ./assets/haydn.mp3`
+
 def welcome(dis)
   banner = File.read('./assets/banner.txt')
   puts banner
@@ -90,6 +92,7 @@ dis.display_dialog("I'll take this one, then!", rivals_name)
 rivals_starter_name = get_rival_starter_name(starter)
 rivals_starter = Pokemon.find_by(name: rivals_starter_name)
 
+fork{ exec 'afplay', './assets/battle.mp3' }
 dis.display_dialog("Wait #{name.upcase}! Let's check out our POKEMON! Come on, I'll take you on!", rivals_name)
 
 rival = Trainer.new(rivals_name)
@@ -102,5 +105,9 @@ player.pokemon << starter
 
 battle = Battle.new(dis, player, rival)
 battle.draw_battle_screen
+`killall afplay`
+fork{ exec 'afplay', './assets/victory.mp3' }
 
 binding.pry
+
+`killall afplay`
